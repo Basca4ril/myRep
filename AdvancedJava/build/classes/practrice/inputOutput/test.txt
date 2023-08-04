@@ -1,0 +1,89 @@
+CREATE DATABASE manageSen;
+GO
+
+USE manageSen;
+GO
+
+/**************************************THERMOMETER*************************************************************/
+
+CREATE TABLE thermometer (                     /*SENSOR IS ADDED*/
+thermoID INTEGER NOT NULL PRIMARY KEY,
+Name VARCHAR(20) NOT NULL,
+Pin SMALLINT NOT NULL,
+thermoreading REAL NOT NULL
+)
+
+GO
+
+ALTER TABLE thermometer                     /*SENSOR IS UPDATED*/
+ADD Description varchar(50) NULL
+
+INSERT INTO thermometer                      /*SENSOR IS UPDATED*/
+VALUES (1, 'INIT Temp', 3256,89.5,'Initial temprature');
+
+
+SELECT *                                     /*SENSOR IS READ*/
+FROM thermometer
+
+DROP TABLE thermometer;                     /*SENSOR IS DELETED*/
+
+DELETE FROM                                 /*SENSOR IS DELETED*/
+thermometer
+WHERE
+(thermoreading < 100);
+
+/**************************************ANEMOMETER*************************************************************/
+
+CREATE TABLE anemometer (                  /*SENSOR IS ADDED*/
+anemoID INTEGER NOT NULL PRIMARY KEY,
+Name VARCHAR(20) NOT NULL,
+Description VARCHAR(50) NULL,
+Pin SMALLINT NOT NULL,
+anemoreading REAL NOT NULL
+)
+
+GO
+
+ALTER TABLE anemometer                    /*SENSOR IS UPDATED*/
+ADD Description varchar(150) NULL
+
+INSERT INTO anemometer                    /*SENSOR IS UPDATED*/
+VALUES (1, 'INIT speed', 1245,12.59, 'Initial wind speed');
+
+SELECT *                                  /*SENSOR IS READ*/
+FROM anemometer
+
+DROP TABLE anemometer;                   /*SENSOR IS DELETED*/
+
+DELETE FROM                              /*SENSOR IS DELETED*/
+anemometer
+WHERE
+(anemoreading < 100);
+
+/**************************************HYGROMETER*************************************************************/
+
+CREATE TABLE hygrometer (                  /*SENSOR IS ADDED*/
+hygroID INTEGER NOT NULL PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+description VARCHAR(50) NULL,
+pin SMALLINT NOT NULL,
+hygroreading REAL NOT NULL
+)
+
+GO
+
+ALTER TABLE hygrometer                    /*SENSOR IS UPDATED*/
+ADD Description varchar(150) NULL
+
+INSERT INTO hygrometer                    /*SENSOR IS UPDATED*/
+VALUES (1, 'INIT hum', 6545,63.32, 'Initial humidity reading');
+
+SELECT *                                  /*SENSOR IS READ*/
+FROM hygrometer
+
+DROP TABLE hygrometer;                    /*SENSOR IS DELETED*/
+
+DELETE FROM                               /*SENSOR IS DELETED*/
+hygrometer
+WHERE
+(hygroreading < 100);
